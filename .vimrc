@@ -23,6 +23,7 @@ set laststatus=2
 set listchars=tab:>\ ,trail:-,nbsp:+
 set maxcombine=6
 set mouse=v
+set noautowrite
 set nobackup
 set nocompatible
 set noerrorbells
@@ -82,11 +83,14 @@ call plug#end()
 
 
 " remaps ----------------------------------------------------------------------
-nnoremap <C-d> <C-d>zz
-nnoremap <C-u> <C-u>zz
 let mapleader = " "
 
-map <Leader>p :echo "mapleader works fine"<Enter><Esc>
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+nnoremap <silent> <C-S-j> :resize -1<CR>
+nnoremap <silent> <C-S-k> :resize +1<CR>
+nnoremap <silent> <C-S-h> :vertical resize -1<CR>
+nnoremap <silent> <C-S-l> :vertical resize +1<CR>
 
 function! WinZoomToggle() abort
     if ! exists('w:WinZoomIsZoomed') 
@@ -105,7 +109,7 @@ function! WinZoomToggle() abort
     endif
 endfunction
 " get full screen one buffer like prefix-z from tmux
-nnoremap <C-b>z :call WinZoomToggle()<CR>
+nnoremap <leader>z :call WinZoomToggle()<CR>
 
 " Colors, font and syntax -----------------------------------------------------
 syntax on
