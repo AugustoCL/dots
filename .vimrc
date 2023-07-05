@@ -72,8 +72,7 @@ call plug#begin('~/.local/share/vim')
     Plug 'vim-airline/vim-airline'
 
     " send-code-to-terminal
-    Plug 'hanschen/vim-ipython-cell', { 'for': ['python', 'julia'] }
-    "Plug 'jpalardy/vim-slime', { 'for': ['python', 'julia']}
+    Plug 'jpalardy/vim-slime', { 'for': ['python', 'julia', 'R']}
 
     " lang support
     Plug 'rust-lang/rust.vim'
@@ -127,7 +126,7 @@ autocmd BufNewFile,BufRead *.jl set ft=julia
 
 " TMUX compatibilities --------------------------------------------------------
 let g:slime_target = "tmux"
-"let g:slime_paste_file = "$HOME/.slime_past"
+let g:slime_paste_file = "$HOME/.slime_past"
 "let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_pane": ":.2"}
 let g:slime_default_config = {"socket_name": "default", "target_pane": "{right-of}"}
 
