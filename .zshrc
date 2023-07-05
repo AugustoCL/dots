@@ -111,16 +111,20 @@ source $ZSH/oh-my-zsh.sh
 
 
 export PATH=/home/augustocl/.local/bin:/home/augustocl/.nvm/versions/node/v20.2.0/bin:/home/augustocl/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/usr/bin/lua:/sbin:/bin:/bin/lua:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/augustocl/.fzf/bin
+export MYVIMRC="$HOME/.vimrc"
 
 bindkey '^I'   complete-word       # tab          | complete
 bindkey '^[[Z' autosuggest-accept  # shift + tab  | autosuggest
+bindkey '^[[1~' beginning-of-line
+bindkey '^[[4~' end-of-line
+bindkey '^[[3~' delete-char
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 alias clipv="xclip -sel clip"
-alias v="fd --type f --hidden --exclude .git | fzf-tmux -p 80% --reverse --preview 'bat {1} -f'| xargs -o vim"
+alias v="fd --type f --hidden --exclude .git | fzf-tmux -p 80% --reverse --preview 'bat {1} -f'| xargs -or vim"
 alias glimpse="fzf-tmux -p 80% --reverse --preview 'bat {1} -f'"
 alias zshrc="vim ~/.zshrc"
 alias bashrc="vim ~/.bashrc"

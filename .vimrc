@@ -15,6 +15,7 @@ set diffopt=internal,filler
 set display=lastline
 set expandtab
 set formatoptions=q
+set foldmethod=manual
 set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
 set hidden
 set history=10000
@@ -44,7 +45,7 @@ set ruler
 "set scroll=13
 "set scrolloff=0
 set sessionoptions-=options
-set shiftwidth=4
+set shiftwidth=2
 set shortmess=filnxtToOf
 set showcmd
 set sidescroll=1
@@ -53,6 +54,7 @@ set smarttab
 set softtabstop=4
 set switchbuf=uselast
 set tabpagemax=50
+set tabstop=4
 set tags=./tags;,tags
 set termguicolors
 set titleold=
@@ -75,8 +77,8 @@ call plug#begin('~/.local/share/vim')
     Plug 'jpalardy/vim-slime', { 'for': ['python', 'julia', 'R']}
 
     " lang support
-    Plug 'rust-lang/rust.vim'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'rust-lang/rust.vim'
     Plug 'JuliaEditorSupport/julia-vim'
 call plug#end()
 
@@ -110,16 +112,18 @@ endfunction
 " get full screen one buffer like prefix-z from tmux
 nnoremap <leader>z :call WinZoomToggle()<CR>
 
+
 " Colors, font and syntax -----------------------------------------------------
 syntax on
 set encoding=utf-8
 set guifont=JuliaMono
+set t_Co=256  " adjusts to gruvbox colorscheme work properly inside a tmux session
+colorscheme ghdark
+
 "let g:gruvbox_italic=0
 "let g:gruvbox_contrast_dark = 'hard'
 "colorscheme gruvbox
 "colorscheme minimalist
-colorscheme ghdark
-set t_Co=256  " adjusts to gruvbox colorscheme work properly inside a tmux session
 
 autocmd BufNewFile,BufRead *.jl set ft=julia
 
