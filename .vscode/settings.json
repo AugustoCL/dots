@@ -1,0 +1,69 @@
+{
+    "terminal.integrated.commandsToSkipShell": [
+        "language-julia.interrupt"
+    ],
+    "julia.symbolCacheDownload": true,
+    "workbench.colorTheme": "Julia (Monokai Vibrant)",
+    "editor.fontSize": 18,
+    "editor.fontFamily": "'JuliaMono', Consolas, 'Courier New', monospace",
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "editor.unicodeHighlight.ambiguousCharacters": false,
+
+    "editor.tokenColorCustomizations": { 
+    "[Julia*][Monokai Vibrant]": { 
+        "textMateRules": [ 
+            { 
+                "scope": [ 
+                    "variable.language", 
+                    "storage", 
+                    "keyword", 
+                    "keyword.operator", 
+                    "keyword.operator.logical", 
+                    "keyword.operator.constructor", 
+                    "source.julia keyword.operator.isa", 
+                    "source.julia keyword.operator.relation.in" 
+                ], 
+                "settings": { 
+                    "fontStyle": "" 
+                } 
+            } 
+        ] 
+    } 
+    },
+    "julia.enableTelemetry": false,
+    "julia.lint.run": false,
+    "terminal.integrated.fontSize": 18,
+
+    "zenMode.hideLineNumbers": false,
+    "editor.lineNumbers": "relative",
+
+    // VIM plugins
+    "vim.smartRelativeLine": true,
+    "vim.easymotion": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": false,
+    "vim.hlsearch": true,
+    "vim.leader": "<space>",
+    "vim.handleKeys": {
+        // "<C-d>": true,
+        "<C-s>": false,
+        "<C-z>": false
+    },
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["<space>", "<Esc>"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "vim.normalModeKeyBindings": [
+        {
+            "before": ["<ctrl+d>"],
+            "after": ["<ctrl+d>", "z", "z"]
+        },
+        {
+            "before": ["<ctrl+u>"],
+            "after": ["<ctrl+u>", "z", "z"]
+        }
+    ]
+}

@@ -1,0 +1,49 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+    {
+        "key": "ctrl+alt+v",
+        "command": "toggleVim"
+    },
+    {
+        "key": "ctrl+b f",
+        "command": "workbench.action.toggleMaximizedPanel"
+    },
+    {
+        "key": "ctrl+b z",
+        "command": "workbench.action.toggleZenMode"
+    },
+    {
+        "key": "alt+k",
+        "command": "selectNextSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "alt+j",
+        "command": "selectPrevSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "alt+,",
+        "command": "workbench.action.decreaseViewSize"
+    },
+    {
+        "key": "alt+.",
+        "command": "workbench.action.increaseViewSize"
+    },
+    {
+        "key": "alt+=",
+        "command": "editor.action.fontZoomIn"
+    },
+    {
+        "key": "alt+-",
+        "command": "editor.action.fontZoomOut"
+    },
+    {
+        "key": "alt+0",
+        "command": "editor.action.fontZoomReset"
+    },
+    {
+        "key": "ctrl+shift+e",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+]
