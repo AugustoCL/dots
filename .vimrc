@@ -74,7 +74,7 @@ call plug#begin('~/.local/share/vim')
     Plug 'vim-airline/vim-airline'
 
     " send-code-to-terminal
-    Plug 'jpalardy/vim-slime', { 'for': ['python', 'julia', 'R']}
+    Plug 'jgdavey/tslime.vim'
 
     " lang support
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -214,3 +214,9 @@ vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+
+" tslime remaps -----------------------------------------------------
+vmap <C-c><C-c> <Plug>SendSelectionToTmux
+nmap <C-c><C-c> <Plug>NormalModeSendToTmux
+nmap <C-c>r <Plug>SetTmuxVars

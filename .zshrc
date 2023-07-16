@@ -151,3 +151,8 @@ function reload-all-zsh() {
 }
 alias reloadvimrc="reload-all-vim"
 alias reloadzshrc="reload-all-zsh"
+
+# open tmux when open any shell
+case $- in *i*)
+    [ -z "$TMUX" ] && exec tmux
+esac
