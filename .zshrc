@@ -3,6 +3,7 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+export EDITOR="/usr/bin/vim"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -126,7 +127,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 alias clipv="xclip -sel clip"
-alias v="fd --type f --hidden --exclude .git | fzf-tmux -p 80% --reverse --preview 'bat {1} -f'| xargs -or vim"
+alias v="fdfind --type f --hidden --exclude .git | fzf-tmux -p 80% --reverse --preview 'bat {1} -f'| xargs -or vim"
 alias glimpse="fzf-tmux -p 80% --reverse --preview 'bat {1} -f'"
 alias zshrc="vim ~/.zshrc"
 alias bashrc="vim ~/.bashrc"
