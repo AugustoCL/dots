@@ -122,6 +122,8 @@ fi
 alias clipv="xclip -sel clip"
 
 export PATH=/home/augustocl/.local/bin:/home/augustocl/.nvm/versions/node/v20.2.0/bin:/home/augustocl/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/augustocl/.fzf/bin
+#export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+#export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
 
-alias v="fd --type f --hidden --exclude .git | fzf-tmux -p 80% --reverse --preview 'bat {1} -f'| xargs -o vim"
+alias v="fdfind --type f --hidden --exclude .git | fzf-tmux -p 80% --reverse --preview 'bat {1} -f'| xargs -o vim"
 alias glimpse="fzf-tmux -p 80% --reverse --preview 'bat {1} -f'"
