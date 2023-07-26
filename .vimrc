@@ -16,6 +16,7 @@ set display=lastline
 set expandtab
 set formatoptions=q
 set foldmethod=manual
+autocmd FileType python setlocal foldmethod=indent
 set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
 set hidden
 set history=10000
@@ -104,8 +105,8 @@ nnoremap <silent> <C-S-j> :resize -1<CR>
 nnoremap <silent> <C-S-k> :resize +1<CR>
 nnoremap <silent> <C-S-h> :vertical resize -1<CR>
 nnoremap <silent> <C-S-l> :vertical resize +1<CR>
-
 nnoremap <S-f> za
+nnoremap <leader>R :so ~/.vimrc<CR>
 
 " get full screen one buffer like prefix-z from tmux
 function! WinZoomToggle() abort
