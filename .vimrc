@@ -105,6 +105,8 @@ nnoremap <silent> <C-S-k> :resize +1<CR>
 nnoremap <silent> <C-S-h> :vertical resize -1<CR>
 nnoremap <silent> <C-S-l> :vertical resize +1<CR>
 
+nnoremap <S-f> za
+
 " get full screen one buffer like prefix-z from tmux
 function! WinZoomToggle() abort
     if ! exists('w:WinZoomIsZoomed') 
