@@ -104,6 +104,7 @@ nnoremap <silent> <C-S-k> :resize +1<CR>
 nnoremap <silent> <C-S-h> :vertical resize -1<CR>
 nnoremap <silent> <C-S-l> :vertical resize +1<CR>
 
+" get full screen one buffer like prefix-z from tmux
 function! WinZoomToggle() abort
     if ! exists('w:WinZoomIsZoomed') 
         let w:WinZoomIsZoomed = 0
@@ -120,8 +121,26 @@ function! WinZoomToggle() abort
         let w:WinZoomIsZoomed = 0
     endif
 endfunction
-" get full screen one buffer like prefix-z from tmux
 nnoremap <leader>z :call WinZoomToggle()<CR>
+
+" hide status bar at vim
+let s:hidden_all = 0
+function! ToggleHiddenAll()
+    if s:hidden_all  == 0
+        let s:hidden_all = 1
+        set noshowmode
+        set noruler
+        set laststatus=0
+        set noshowcmd
+    else
+        let s:hidden_all = 0
+        set showmode
+        set ruler
+        set laststatus=2
+        set showcmd
+    endif
+endfunction
+nnoremap <C-w>\ :call ToggleHiddenAll()<CR>
 
 
 " Colors, font and syntax -----------------------------------------------------
