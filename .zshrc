@@ -101,25 +101,6 @@ plugins=(
 source /home/augustocl/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
-# remaps and alias --------------------------------------------------------------------------
-bindkey '^I'   complete-word       # tab          | complete
-bindkey '^[[Z' autosuggest-accept  # shift + tab  | autosuggest
-bindkey '^[[1~' beginning-of-line
-bindkey '^[[4~' end-of-line
-bindkey '^[[3~' delete-char
-
-alias clipv="xclip -sel clip"
-alias v="fdfind --type f --hidden --exclude .git | fzf-tmux -p 80% --reverse --preview 'bat {1} -f'| xargs -or vim"
-alias glimpse="fzf-tmux -p 80% --reverse --preview 'bat {1} -f'"
-alias zshrc="vim ~/.zshrc"
-alias bashrc="vim ~/.bashrc"
-alias tmuxrc="vim ~/.tmux.conf"
-alias vimrc="vim ~/.vimrc"
-alias nvimrc="vim ~/.config/nvim/init.lua"
-alias tnowrap="tput rmam"
-alias twrap="tput smam"
-
-
 # Appearance -------------------------------------------------------------------------------- 
 
 # Set name of the theme to load --- if set to "random", it will
@@ -163,4 +144,24 @@ source $ZSH/oh-my-zsh.sh
 case $- in *i*)
     [ -z "$TMUX" ] && exec tmux
 esac
+
+
+# remaps and alias --------------------------------------------------------------------------
+bindkey '^I'   complete-word       # tab          | complete
+bindkey '^[[Z' autosuggest-accept  # shift + tab  | autosuggest
+bindkey '^[[1~' beginning-of-line
+bindkey '^[[4~' end-of-line
+bindkey '^[[3~' delete-char
+
+alias clipv="xclip -sel clip"
+alias v="fdfind --type f --hidden --exclude .git | fzf-tmux -p 80% --reverse --preview 'bat {1} -f'| xargs -or vim"
+alias glimpse="fzf-tmux -p 80% --reverse --preview 'bat {1} -f'"
+alias zshrc="vim ~/.zshrc"
+alias bashrc="vim ~/.bashrc"
+alias tmuxrc="vim ~/.tmux.conf"
+alias vimrc="vim ~/.vimrc"
+alias nvimrc="vim ~/.config/nvim/init.lua"
+alias tnowrap="tput rmam"
+alias twrap="tput smam"
+
 
