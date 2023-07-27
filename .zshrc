@@ -1,5 +1,4 @@
 # General -----------------------------------------------------------------------------------
-less_termcap[md]="${fg_bold[blue]}" # this tells less to print bold text in bold blue
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -84,6 +83,24 @@ export NVM_DIR="$HOME/.nvm"
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 
+# Plugins -----------------------------------------------------------------------------------
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(
+    git
+    fzf
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+    colored-man-pages
+    web-search
+)
+
+source /home/augustocl/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+
 # remaps and alias --------------------------------------------------------------------------
 bindkey '^I'   complete-word       # tab          | complete
 bindkey '^[[Z' autosuggest-accept  # shift + tab  | autosuggest
@@ -117,26 +134,7 @@ ZSH_THEME="robbyrussell"
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
-
-# Plugins -----------------------------------------------------------------------------------
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(
-    git
-    fzf
-    zsh-autosuggestions
-    zsh-syntax-highlighting
-    colored-man-pages
-    web-search
-)
-
-source $ZSH/oh-my-zsh.sh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-source /home/augustocl/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#less_termcap[md]="${fg_bold[blue]}" # this tells less to print bold text in bold blue
 
 
 # Functions ---------------------------------------------------------------------------------
@@ -156,7 +154,13 @@ function reload-all-zsh() {
 alias reloadvimrc="reload-all-vim"
 alias reloadzshrc="reload-all-zsh"
 
+
+# sources -----------------------------------------------------------------------------------
+source $ZSH/oh-my-zsh.sh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # open tmux when open any shell
 case $- in *i*)
     [ -z "$TMUX" ] && exec tmux
 esac
+
