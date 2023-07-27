@@ -70,25 +70,27 @@ set wildmenu
 
 " Plugins ---------------------------------------------------------------------
 call plug#begin('~/.local/share/vim')
-    " visuals in general
+    " Appearance
     Plug 'wojciechkepka/vim-github-dark'
-    "Plug 'dikiaap/minimalist'
-    Plug 'vim-airline/vim-airline'
+    Plug 'fcpg/vim-fahrenheit'
+    Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+    Plug 'dikiaap/minimalist'
+    Plug 'itchyny/lightline.vim'
+    Plug 'itchyny/vim-gitbranch'
 
-    " send-code-to-terminal
+    " Send-code-to-terminal
     Plug 'jgdavey/tslime.vim'
 
-    " lang support
+    " Lang support
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'rust-lang/rust.vim'
     Plug 'JuliaEditorSupport/julia-vim'
+    Plug 'autozimu/LanguageClient-neovim', {
+                \ 'branch': 'next',
+                \ 'do': 'bash install.sh',
+                \ }
 
     Plug 'jiangmiao/auto-pairs'
-
-    Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
 
     " (Optional) Multi-entry selection UI.
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -152,12 +154,27 @@ syntax on
 set encoding=utf-8
 set guifont=JuliaMono
 set t_Co=256  " adjusts to gruvbox colorscheme work properly inside a tmux session
-colorscheme ghdark
 
 "let g:gruvbox_italic=0
 "let g:gruvbox_contrast_dark = 'hard'
 "colorscheme gruvbox
 "colorscheme minimalist
+"let g:gh_color = 'soft'
+"colorscheme ghdark
+colorscheme fahrenheit
+"colorscheme catppuccin_mocha
+
+let g:lightline = {
+      \ 'colorscheme': 'fahrenheit',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'gitbranch#name'
+      \ },
+      \ }
+
 
 autocmd BufNewFile,BufRead *.jl set ft=julia
 
@@ -197,7 +214,7 @@ let g:LanguageClient_serverCommands = {
 " note that if you are using Plug mapping you should not use `noremap` mappings.
 nmap <F5> <Plug>(lcn-menu)
 " Or map each action separately
-nmap <silent>K <Plug>(lcn-hover)
+nmap <silent> K <Plug>(lcn-hover)
 nmap <silent> gd <Plug>(lcn-definition)
 nmap <silent> <F2> <Plug>(lcn-rename)
 
@@ -370,7 +387,6 @@ let g:tslime_autoset_pane=1
 
 
 " fzf plugin -----------------------------------------------------------------
-
 " adjust call of Files and Buffers funcions
 command! -bang -nargs=? -complete=dir Files
     \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline']}), <bang>0)
