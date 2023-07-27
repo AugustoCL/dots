@@ -148,12 +148,24 @@ function! ToggleHiddenAll()
 endfunction
 nnoremap <C-w>\ :call ToggleHiddenAll()<CR>
 
+" remember folds
+augroup remember_folds
+  autocmd!
+  autocmd BufWritePost * mkview
+  autocmd BufReadPost * silent! loadview
+augroup END
+
+" remove tilda (~) from EndOfBuffer
+autocmd VimEnter * highlight! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
+
 
 " Colors, font and syntax -----------------------------------------------------
 syntax on
 set encoding=utf-8
 set guifont=JuliaMono
-set t_Co=256  " adjusts to gruvbox colorscheme work properly inside a tmux session
+if !has('gui_running')
+  set t_Co=256
+endif
 
 "let g:gruvbox_italic=0
 "let g:gruvbox_contrast_dark = 'hard'
