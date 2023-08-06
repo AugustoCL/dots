@@ -544,6 +544,8 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 " tslime remaps --------------------------------------------------------------
 vmap <C-c><C-c> <Plug>SendSelectionToTmux
 nmap <C-c><C-c> <Plug>NormalModeSendToTmux
+vmap JK <Plug>SendSelectionToTmuxj
+nmap JK <Plug>NormalModeSendToTmux}j
 nmap <C-c>r <Plug>SetTmuxVars
 let g:tslime_always_current_session=1
 let g:tslime_always_current_window=1
